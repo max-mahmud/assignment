@@ -10,10 +10,10 @@ const SideBar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed top-0 left-0">
-      <div className="bg-white  w-[250px]  min-h-screen relative">
+    <div className="md:fixed top-0 left-0 ">
+      <div className="bg-white  md:w-[250px] w-[268px] h-[384px]  md:min-h-screen relative">
         {/* Logo */}
-        <Link to={"/"} className="flex justify-center">
+        <Link to={"/"} className="md:flex hidden justify-center ">
           <img
             src="./public/LOGO.png"
             alt="=logo"
@@ -22,7 +22,7 @@ const SideBar = () => {
         </Link>
 
         {/* Nav Links */}
-        <div className=" mt-[40px]">
+        <div className=" md:mt-[40px] pt-5 pr-4">
           {NavData.map((item) => (
             <NavLink
               key={item.id}

@@ -4,6 +4,7 @@ import { auth, db } from './firebase';
 import { toast } from 'react-toastify';
 import { setDoc, doc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import google from '../assets/google.png';
 
 function SignInwithGoogle() {
   const navigate = useNavigate();
@@ -36,15 +37,13 @@ function SignInwithGoogle() {
 
   return (
     <div>
-      <p className="continue-p">--Or continue with--</p>
       <div
-        style={{ display: 'flex', justifyContent: 'center', cursor: 'pointer' }}
         onClick={googleLogin}
       >
         {/* Google icon */}
         {/* Uncomment and adjust the path as needed */}
-        {/* <img src={require("../google.png")} width={"60%"} alt="Google logo" /> */}
-        <span>Google</span>
+        <img className='w-[146px] md:w-[178px] md:h-[69px] h-[45px] ' src={google}  alt="Google logo" />
+        {/* <span>Google</span> */}
       </div>
     </div>
   );

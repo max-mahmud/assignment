@@ -15,34 +15,17 @@ import { doc, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import GoButton from "../components/GoButton";
 
 const Home = () => {
-  // const [userData, setUserData] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  // const navigate = useNavigate(); // Initialize useNavigate
-
   const { user, loading } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (!user) {
       navigate("/login"); // Redirect to login page if not authenticated
     }
-  }, [loading, user, navigate]);
- 
-
-  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       fetchUserData(user);
-  //     } else {
-  //       setLoading(false);
-  //       console.log("No user logged in");
-  //       navigate("/login");
-  //     }
-  //   });
-
-  //   return () => unsubscribe();
-  // }, [navigate]);
+  }, [user, navigate]);
 
   if (loading) {
     return <div>Loading...</div>; // Render a loading state while fetching data
@@ -51,8 +34,8 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="bg-white w-full h-[212px] rounded-[10px] p-6 flex justify-between items-center gap-7">
-        <div>
+      <div className="bg-white w-full md:h-[212px] h-[428px] rounded-[10px] mt-3 md:mt-0 p-6 flex flex-col md:flex-row justify-between items-center md:gap-7 gap-3">
+        <div className="">
           <h2 className="text-[20px] font-medium">
             I'm Looking for Massage Therapist Near...
           </h2>
@@ -61,41 +44,44 @@ const Home = () => {
             <a className="underline text-blue-500">Terms of Service</a> <br />{" "}
             and <a className="underline text-blue-500">Privacy Policy</a>
           </div>
-          <div className="h-[50px] w-[470px] rounded-[10px] bg-[#EEF2F5] mt-4 py-3 px-5 relative ">
-            <input
-              type="text"
-              name=""
-              id=""
-              className="bg-inherit"
-              placeholder="ZIP code or city name"
-            />
-            <button className="absolute top-1 right-1 w-[83px] h-10 bg-[#156BCA] py-[10px] px-[11px] rounded-[8px] text-white   ">
-              GO
-            </button>
+          <div className="hidden md:block">
+          <GoButton />
           </div>
         </div>
-        <div className="flex ">
-          <div className="relative ">
+        <div className="md:flex  md:py-0 py-2">
+          <div className="relative hidden md:block ">
             <img
               src={vector}
-              className="absolute top-5 scale-125 -left-28"
+              className="absolute top-5  z-[0] scale-125 md:-left-32"
               alt=""
             />
-            <img src={Photo1} className="mr-3" alt="" />
+            <img src={Photo1} className="mr-3 z-[9999]" alt="" />
+          </div>
+          <div className="flex md:hidden w-[380px] mx-auto justify-center relative">
+            <img src={vector} alt="" className="w-full" />
+            <div className="absolute top-0">
+              <img src={Photo1} alt="" className="w-full scale-110 " />
+            </div>
           </div>
         </div>
+
+        <div className="md:hidden block">
+          <GoButton />
+          </div>
       </div>
+
       {/* Features Therapist */}
-      <div>
-        <h3>Feature Therapist</h3>
-        <div className="bg-white h-[363px] flex items-center justify-center gap-4 ">
-          {/* <div className="w-10 h-10 ms-5">
+      <div className="mt-6">
+        <h3 className="font-semibold text-[18px] mb-4 md:px-0 px-4">Feature Therapist</h3>
+        <div className=" w-auto bg-white h-[363px] flex items-center justify-center overflow-hidden gap-4 rounded-[10px]">
+          {/* <div className="w-10 h-10 ms-5 hidden md:block">
             <img className="w-full h-full" src={left} alt="" />
           </div> */}
           {therapistData.map((item, i) => {
             return (
               <Card
                 key={i}
+                idx={i}
                 name={item.name}
                 img={item.img}
                 adds={item.adds}
@@ -103,26 +89,34 @@ const Home = () => {
               />
             );
           })}
-          {/* //Todo : pore uncomment korte hobe */}
-          {/* <div className="w-10 h-10 mr-5">
+
+          <div className="w-10 h-10 mr-5 hidden md:block">
             <img className="w-full h-full" src={right} alt="" />
-          </div> */}
+          </div>
         </div>
       </div>
+
       {/* Features Testimonial and Popular Cities */}
-      <div className="flex items-center justify-between gap-5 mt-5">
+      <div className="flex flex-col md:flex-row gap-5   items-center justify-between mt-5">
         {/* Testimonial */}
-        {/* //TODO : w-[550px] hobe */}
-        <div className="bg-white w-[460px] h-[429px] rounded-[10px] flex flex-col items-center p-5 gap-5 ">
-          <TestimonialCard img={testiImg2} />
-          <TestimonialCard img={testiImg} />
-          {/* Three dots manually. not added any carousel  */}
-          <ThreeDots />
+        <div>
+          <h3 className="font-semibold text-[18px] mb-3 px-4">
+            Featured Testimonial
+          </h3>
+          <div className="bg-white md:w-[550px] h-[429px] rounded-[10px] flex flex-col items-center p-5 gap-5 ">
+            <TestimonialCard img={testiImg2} />
+            <TestimonialCard img={testiImg} />
+            {/* Three dots manually. not added any carousel  */}
+            <ThreeDots />
+          </div>
         </div>
 
         {/* Cities */}
-        <div className="bg-white w-[460px] h-[429px] py-2 px-5 rounded-[10px] ">
-          <CityTable />
+        <div className="">
+          <h3 className="font-semibold text-[18px] mb-3 md:px-0 px-4">Popular Cities</h3>
+          <div className="bg-white md:w-[550px] w-[430px] md:h-[429px] h-[334px] py-2 px-5 rounded-[10px] ">
+            <CityTable />
+          </div>
         </div>
       </div>
     </div>

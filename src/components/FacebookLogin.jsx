@@ -1,9 +1,8 @@
-// src/components/FacebookLogin.jsx
-
 import React from 'react';
 import { toast } from 'react-toastify';
 import { FacebookAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '../components/firebase';
+import facebook from '../assets/fb.png';
 
 const FacebookLogin = () => {
   const handleFacebookLogin = async () => {
@@ -21,9 +20,9 @@ const FacebookLogin = () => {
   return (
     <button
       onClick={handleFacebookLogin}
-      className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+      className=""
     >
-      Facebook
+      <img className='w-[146px] md:w-[205px] md:h-[54px] h-[45px] ' src={facebook}  alt="fb logo" />
     </button>
   );
 };

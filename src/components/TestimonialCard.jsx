@@ -4,7 +4,7 @@ import location from "../assets/icons/Location.png";
 const TestimonialCard = ({ img }) => {
   // todo : w-[490px]
   return (
-    <div className=" border rounded-[10px] overflow-hidden flex gap-3 w-[430px] h-[160px]   ">
+    <div className=" border rounded-[10px] overflow-hidden flex gap-3 md:w-[430px] w-[398px] h-[160px]   ">
       <div className="w-[130px] h-[140px] rounded-[8px] mt-[10px] ms-[10px]  ">
         <img src={img} alt="img" className="w-[130px] h-full " />
       </div>
