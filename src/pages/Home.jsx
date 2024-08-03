@@ -73,10 +73,10 @@ const Home = () => {
       {/* Features Therapist */}
       <div className="mt-6">
         <h3 className="font-semibold text-[18px] mb-4 md:px-0 px-4">Feature Therapist</h3>
-        <div className=" w-auto bg-white h-[363px] flex items-center justify-center overflow-hidden gap-4 rounded-[10px]">
-          {/* <div className="w-10 h-10 ms-5 hidden md:block">
+        <div className=" w-auto bg-white h-[363px] flex items-center justify-center overflow-hidden md:gap-4 rounded-[10px]">
+          <div className="w-10 h-10 ms-5 hidden md:block">
             <img className="w-full h-full" src={left} alt="" />
-          </div> */}
+          </div>
           {therapistData.map((item, i) => {
             return (
               <Card
@@ -112,7 +112,7 @@ const Home = () => {
         </div>
 
         {/* Cities */}
-        <div className="">
+        <div className="pb-7">
           <h3 className="font-semibold text-[18px] mb-3 md:px-0 px-4">Popular Cities</h3>
           <div className="bg-white md:w-[550px] w-[430px] md:h-[429px] h-[334px] py-2 px-5 rounded-[10px] ">
             <CityTable />

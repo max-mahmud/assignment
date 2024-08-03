@@ -6,7 +6,7 @@ import location from "../assets/icons/Location.png"
 //
 const Card = ({name, adds, pos, img, idx}) => {
   return (
-    <div className={`${idx===3 ? "hidden md:block scale-100": idx==1? "scale-105 md:scale-100": "scale-90 md:scale-100"} w-[214px]  h-[303px] border rounded-[10px]  relative scale-110`}>
+    <div className={`${idx===3 ? "hidden md:block md:scale-100": idx==1? "scale-90 md:scale-100": "scale-75 md:scale-100"} w-[214px]  h-[303px] border rounded-[10px]  relative scale-110`}>
         <div className='w-[194px] h-[146px] rounded-[8px] mt-[10px] ms-[10px]  '>
             <img src={img} alt="img" className='w-full h-full ' />
         </div>
