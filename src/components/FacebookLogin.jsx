@@ -20,7 +20,7 @@ const FacebookLogin = () => {
   return (
     <button
       onClick={handleFacebookLogin}
-      className=""
+      className="cursor-pointer"
     >
       <img className='w-[146px] md:w-[205px] md:h-[54px] h-[45px] ' src={facebook}  alt="fb logo" />
     </button>

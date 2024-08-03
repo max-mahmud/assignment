@@ -8,8 +8,7 @@ import SignInwithGoogle from "../components/SignInWIthGoogle";
 import { useAuth } from "../context/authContext";
 import FacebookLogin from "../components/FacebookLogin";
 import logo from "../assets/LOGO.png";
-import loginImage from '../assets/login.png';
-
+import loginImage from "../assets/login.png";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -26,7 +25,7 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       toast.success("Login successful");
@@ -62,9 +61,14 @@ const LoginPage = () => {
           <h4> massage therapists</h4>
         </div>
 
-        <div className=" hidden md:flex w-[428px]  justify-between  gap-7 mb-6">
+        <div className=" hidden md:flex w-[428px]  justify-between items-center  gap-7 mb-6">
           <SignInwithGoogle />
-          <FacebookLogin />
+          <span className="relative group">
+            <FacebookLogin />
+            <span className="absolute left-1/2 bottom-full mb-2 w-52 -translate-x-1/2 bg-black text-white text-center rounded-lg py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            I cannot open Facebook from my PC and Facebook login not working
+            </span>
+          </span>
         </div>
 
         <div className=" hidden md:flex items-center text-sm text-gray-600 mb-6 text-center">
@@ -73,11 +77,18 @@ const LoginPage = () => {
           <div className="w-[32%] h-[1px] bg-gray-300"></div>
         </div>
 
-        <form className="w-screen md:w-full p-4 md:p-0 pb-14 md:pb-0 rounded-tl-[40px] md:rounded-none rounded-tr-[40px] bg-white" onSubmit={handleSubmit}>
+        <form
+          className="w-screen md:w-full p-4 md:p-0 pb-14 md:pb-0 rounded-tl-[40px] md:rounded-none rounded-tr-[40px] bg-white"
+          onSubmit={handleSubmit}
+        >
           <div className="md:hidden">
             <div className="pt-3 pb-9">
-              <h4 className="text-[28px] font-semibold">Log In To Your Account</h4>
-              <span className="text-sm">Welcome Back! Select a method to log in:</span>
+              <h4 className="text-[28px] font-semibold">
+                Log In To Your Account
+              </h4>
+              <span className="text-sm">
+                Welcome Back! Select a method to log in:
+              </span>
             </div>
 
             <div className=" md:hidden flex w-[398px] md:w-[428px]  justify-center gap-11  mb-6">
@@ -86,11 +97,10 @@ const LoginPage = () => {
             </div>
 
             <div className=" md:hidden flex items-center text-sm text-gray-600 mb-6 text-center">
-          <div className="w-[29%] h-[1px] bg-gray-300"></div>
-          <span className="px-3 text-gray-500">Or Continue with Email</span>
-          <div className="w-[29%] h-[1px] bg-gray-300"></div>
-        </div>
-
+              <div className="w-[29%] h-[1px] bg-gray-300"></div>
+              <span className="px-3 text-gray-500">Or Continue with Email</span>
+              <div className="w-[29%] h-[1px] bg-gray-300"></div>
+            </div>
           </div>
 
           <div className="mb-4">
@@ -141,7 +151,8 @@ const LoginPage = () => {
 
           <p className="text-sm text-gray-600 mt-5 text-center">
             Don’t Have an Account?{" "}
-            <button type="button"
+            <button
+              type="button"
               onClick={() => navigate("/register")}
               className="text-blue-600 underline"
             >

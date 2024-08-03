@@ -36,7 +36,7 @@ function SignInwithGoogle() {
   };
 
   return (
-    <div>
+    <div className='cursor-pointer'>
       <div
         onClick={googleLogin}
       >
