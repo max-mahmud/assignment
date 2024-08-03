@@ -26,16 +26,13 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        if (user && !isDataFetched) {
           const userDoc = await getDoc(doc(db, "users", user.uid));
           if (userDoc.exists()) {
             setUser((prevUser) => ({
               ...prevUser,
               ...userDoc.data(),
             }));
-            setIsDataFetched(true); // Mark data as fetched
           }
-        }
       } catch (error) {
         console.error("Error fetching user data:", error);
         navigate("/login");
@@ -45,8 +42,8 @@ export const AuthProvider = ({ children }) => {
     };
 
     fetchUserData();
-  }, [user, isDataFetched, navigate]);
-  // console.log("user =..>>>", user?.displayName ? user.displayName : user?.name);
+  }, []);
+  console.log("user =..>>>", user);
   const logout = async () => {
     try {
       await signOut(auth);

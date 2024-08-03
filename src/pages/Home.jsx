@@ -112,7 +112,7 @@ const Home = () => {
         </div>
 
         {/* Cities */}
-        <div className="pb-7">
+        <div className="pb-7 md:pb-0">
           <h3 className="font-semibold text-[18px] mb-3 md:px-0 px-4">Popular Cities</h3>
           <div className="bg-white md:w-[550px] w-[430px] md:h-[429px] h-[334px] py-2 px-5 rounded-[10px] ">
             <CityTable />

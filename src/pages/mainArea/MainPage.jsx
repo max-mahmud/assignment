@@ -14,6 +14,8 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../components/firebase";
 import { toast } from "react-toastify";
 import { useAuth } from "../../context/authContext";
+import logo from "../../assets/LOGO.png"
+import manIcon from "../../assets/Group 12867.png"
 
 const MainPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,7 +40,7 @@ const MainPage = () => {
           <div className="">
             <div className="md:px-[30px] px-4 bg-white md:h-[88px] h-[60px] flex justify-between items-center">
               <div className="md:flex gap-3 hidden ">
-                <img src="./public/Group 12867.png" alt="" />
+                <img src={manIcon} alt="avater" />
                 <div className="relative cursor-pointer">
                   <h4>sagar soni</h4>
                   <span>sagar@gmail.com</span>
@@ -46,7 +48,7 @@ const MainPage = () => {
                 </div>
               </div>
               <div className="md:hidden block w-[88px] h-[36px] py-1  ">
-                <img src="./public/LOGO.png" alt="" />
+                <img src={logo} alt="logo" />
               </div>
               <div className="flex md:gap-5 gap-2.5 items-center">
                 <img
@@ -88,8 +90,8 @@ const MainPage = () => {
                 <div className="flex justify-end">
                   <img
                     className="w-[74px] h-[74px]  "
-                    src="./public/Group 12867.png"
-                    alt=""
+                    src={manIcon}
+                    alt="avater"
                   />
                 </div>
                 <div className=" cursor-pointer">

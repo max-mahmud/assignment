@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { NavData } from "../../assets/data/NavData";
 import setting from "../../assets/icons/Setting.png";
 import info from "../../assets/icons/Info Circle.png";
-
+import logo from "../../assets/LOGO.png";
 const SideBar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -15,8 +15,8 @@ const SideBar = () => {
         {/* Logo */}
         <Link to={"/"} className="md:flex hidden justify-center ">
           <img
-            src="./public/LOGO.png"
-            alt="=logo"
+            src={logo}
+            alt="logo"
             className="w-[109px] h-[45px] mt-[55px]"
           />
         </Link>

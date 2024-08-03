@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 import SignInwithGoogle from "../components/SignInWIthGoogle";
 import { useAuth } from "../context/authContext";
 import FacebookLogin from "../components/FacebookLogin";
+import logo from "../assets/LOGO.png";
+import loginImage from '../assets/login.png';
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +26,7 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., API call to register or login)
+    
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       toast.success("Login successful");
@@ -34,7 +37,6 @@ const LoginPage = () => {
     } catch (error) {
       toast.error(error.message);
     }
-    // Reset form fields if needed
   };
 
   return (
@@ -42,7 +44,7 @@ const LoginPage = () => {
       {/* Form Section */}
       <div className="md:w-1/2 flex flex-col justify-center  md:p-10">
         <div className=" flex justify-center md:justify-start mt-16 md:mt-0 md:mb-6 mb-2">
-          <img className="w-[109px]" src="./public/Logo.png" alt="" />
+          <img className="w-[109px]" src={logo} alt="" />
         </div>
         <div className="md:block hidden">
           <h2 className="text-2xl font-semibold mb-4">
@@ -139,7 +141,7 @@ const LoginPage = () => {
 
           <p className="text-sm text-gray-600 mt-5 text-center">
             Don’t Have an Account?{" "}
-            <button
+            <button type="button"
               onClick={() => navigate("/register")}
               className="text-blue-600 underline"
             >
@@ -152,7 +154,7 @@ const LoginPage = () => {
       {/* Image Section */}
       <div
         className="w-1/2 bg-cover hidden  bg-center md:flex relative justify-center items-center rounded-[16px]"
-        style={{ backgroundImage: "url('./src/assets/login.png')" }}
+        style={{ backgroundImage: `url(${loginImage})` }}
       >
         <div className=" bg-[#152A16] opacity-70 w-[341px] h-[143px] rounded-[10px] flex flex-col text-[22px] font-medium justify-center items-center text-white p-5">
           <h4>

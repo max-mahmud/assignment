@@ -6,6 +6,8 @@ import { auth, db } from "../components/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import logo from "../assets/LOGO.png";
+import loginImage from '../assets/login.png';
 
 const RegisterPage = () => {
   const [state, setState] = useState({
@@ -89,7 +91,7 @@ const RegisterPage = () => {
       {/* Form Section */}
       <div className=" md:flex md:w-1/2 flex-col justify-center md:px-3">
         <div className=" flex justify-center md:justify-normal mt-16 md:mt-0 mb-6">
-          <img className="w-[109px]" src="./public/Logo.png" alt="" />
+          <img className="w-[109px]" src={logo} alt="" />
         </div>
         <div className={`${show ? "hidden" : "block px-[22px] md:px-0"}`}>
           <h2 className="text-[30px] text-center md:text-left mt-9 md:mt-0 font-semibold mb-4">
@@ -207,7 +209,7 @@ const RegisterPage = () => {
       {/* Image Section */}
       <div
         className="w-1/2 hidden  bg-cover bg-center md:flex justify-center items-center rounded-[16px] relative"
-        style={{ backgroundImage: "url('./src/assets/login.png')" }}
+        style={{ backgroundImage: `url(${loginImage})` }}
       >
         {/* Rectangle */}
         <div className=" bg-[#152A16] opacity-70 w-[341px] h-[143px] rounded-[10px] flex flex-col text-[22px] font-medium justify-center items-center text-white">
